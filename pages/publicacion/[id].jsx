@@ -106,7 +106,7 @@ const Publicacion = () => {
           </div>
           <div className="col-md-3">
             <div className="card w-100 p-3">
-              <Link href="/empresa/uno-call-center">
+              <Link href="/empresa/[idEmpresa]" as="/empresa/uno-call-center">
                 <a className="h4 mb-3">Uno Call Center</a>
               </Link>
               <p className="h5">Contactos</p>

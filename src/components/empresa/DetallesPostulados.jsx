@@ -22,7 +22,7 @@ const DetallesPostulados = () => {
         <Collapse
           title={
             <div className="d-flex align-items-center">
-              <Link href="/perfil/erickson01d">
+              <Link href="/perfil/[username]" as="/perfil/erickson01d">
                 <a>
                   <img
                     src="https://persona-app-es.herokuapp.com/assets/personas/1-e0e7223aeb2f66a659d032fb393d11d7e62e00706b1bef5f9f1a13eaa93d4b4b.png"

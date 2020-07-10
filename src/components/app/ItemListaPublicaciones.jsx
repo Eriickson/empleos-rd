@@ -3,11 +3,12 @@ import Link from 'next/link'
 import * as Feather from 'react-feather'
 
 const ItemListaPublicaciones = () => {
+  const id = "desarrollador-web"
   return (
     <li className="card p-3 mb-2">
       <div>
         <div className="d-flex justify-content-between">
-          <Link href="/publicacion/desarrollador-web">
+          <Link href="/publicacion/[id]" as={`publicacion/${id}`}>
             <a>
               <h5>Desarrollador web</h5>
             </a>
