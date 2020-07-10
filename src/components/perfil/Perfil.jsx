@@ -31,7 +31,10 @@ export const Perfil = () => {
                   alt=""
                 />
               </div>
-              <Link href="/perfil/editar/erickson01d">
+              <Link
+                href="/perfil/editar/[username]"
+                as="/perfil/editar/erickson01d"
+              >
                 <a className="btn btn-primary btn-block my-3">Editar Perfil</a>
               </Link>
               <div className="mb-2">
