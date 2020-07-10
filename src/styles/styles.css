@@ -1,0 +1,39 @@
+button,
+input {
+  border: none;
+  background-color: white;
+  outline: none !important;
+}
+svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.AnyClassForContainer {
+  position: fixed;
+  right: -100px;
+  bottom: 50px;
+  transition: right 0.5s;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 5px;
+  transition: 250ms;
+  outline: none;
+}
+.AnyClassForContainer:hover {
+  transform: scale(1.2);
+  transition: 250ms;
+}
+
+.AnyClassForTransition {
+  right: 20px;
+}
+.card {
+  height: max-content;
+}
+
+.w-max-content {
+  min-width: max-content;
+}
