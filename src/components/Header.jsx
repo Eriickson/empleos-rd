@@ -6,7 +6,7 @@ import IniciarSeccionModal from './IniciarSeccionModal'
 import { css } from '@emotion/core'
 
 export const Header = () => {
-  const [isRegister, setIsRegister] = useState(true)
+  const [isRegister, setIsRegister] = useState(false)
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light ">

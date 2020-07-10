@@ -1,9 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-
-// Firebase
-import { auth } from '../../../firebase'
 import { AlertNotification } from '../../elements'
 
 export const FormularioRegistrarEmpresa = () => {

@@ -4,15 +4,12 @@ import { useForm } from 'react-hook-form'
 import paises from 'i18n-iso-countries/langs/es.json'
 
 // Apollo & GraphQL
-import { useMutation } from '@apollo/react-hooks'
-import { REGISTRAR_USUARIO_M } from '../../../graphql/mutations'
 
 import { AlertNotification } from '../../elements'
 
 export const FormularioRegistrarUsuario = () => {
   const [error, setError] = useState({ value: false, message: null })
   const { handleSubmit, register, errors } = useForm()
-  const [registrarUsuario, { data }] = useMutation(REGISTRAR_USUARIO_M)
 
   const onSubmit = async (data) => {
     if (data.confirmarContrasenya !== data.contrasenya) {
@@ -23,7 +20,6 @@ export const FormularioRegistrarUsuario = () => {
       return null
     }
     delete data.confirmarContrasenya
-    const variables = { input: data }
 
     registrarUsuario({ variables }).catch((err) => {
       const errorManejado = JSON.parse(`${err}`.split('GraphQL error: ').pop())

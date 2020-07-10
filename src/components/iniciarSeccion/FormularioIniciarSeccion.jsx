@@ -2,21 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 
-// Firebase
-import firebase from 'firebase/app'
-import { auth } from '../../../firebase'
-
 export const FormularioIniciarSeccion = () => {
   const { errors, handleSubmit, register } = useForm()
 
-  const onSubmit = async ({ correo, contrasenya }) => {
-    try {
-      const data = await auth.signInWithEmailAndPassword(correo, contrasenya)
-      console.log(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const onSubmit = (data) => {}
 
   return (
     <div className="row">
@@ -74,10 +63,7 @@ export const FormularioIniciarSeccion = () => {
         </form>
         <span className="my-3 text-center">O</span>
         <div className="d-flex align-items-center">
-          <button
-            className="btn btn-block btn-outline-primary mr-2"
-            onClick={() => signInWithGoogle()}
-          >
+          <button className="btn btn-block btn-outline-primary mr-2">
             Google
           </button>
           <button className="btn btn-block btn-outline-primary m-0">
