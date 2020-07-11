@@ -1,12 +1,21 @@
 import React from 'react'
 import { Modal } from './Modal'
+import { css } from '@emotion/core'
 
-export const ScreenPDF = ({ url }) => {
+export const ScreenPDF = ({ url, labelButton }) => {
   return (
-    <Modal labelButton="ver" classNameButton="btn btn-primary">
+    <Modal
+      labelButton={labelButton ? labelButton : 'ver'}
+      classNameButton="btn btn-primary"
+      btnClose={true}
+    >
       <object
-        data={`https://drive.google.com/viewerng/viewer?embedded=true&url=${url}`}
+        data={url}
         type="application/pdf"
+        css={css`
+          width: 100vw;
+          height: 100vh;
+        `}
       >
         <p className="text-white">
           <a href={url}>click here to download the PDF file.</a>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { ActionsFormBottom } from '../../../elements'
 
 const Contactos = () => {
   return (
@@ -80,6 +81,7 @@ const Contactos = () => {
             </div>
           </div>
         </div>
+        <ActionsFormBottom />
       </div>
     </div>
   )

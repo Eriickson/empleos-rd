@@ -10,6 +10,8 @@ export const Modal = ({
   classNameButton,
   name,
   className,
+  btnClose,
+  closeZone,
 }) => {
   const [estado, setEstado] = useState(false)
 
@@ -45,29 +47,35 @@ export const Modal = ({
             }}
             onClick={(e) => {
               if (e.target.classList.contains(`dark-modal-${name}`)) {
-                setEstado(!estado)
+                closeZone ? setEstado(!estado) : null
               }
             }}
           >
             {children}
-            <button
-              onClick={() => setEstado(false)}
-              css={css`
-                position: fixed;
-                width: 4rem;
-                height: 4rem;
-                color: white;
-                border-radius: 50%;
-                bottom: 3rem;
-                right: 3rem;
-                background-color: purple;
-              `}
-            >
-              <Feather.X />
-            </button>
+            {btnClose && (
+              <button
+                onClick={() => setEstado(false)}
+                css={css`
+                  position: fixed;
+                  width: 4rem;
+                  height: 4rem;
+                  color: white;
+                  border-radius: 50%;
+                  bottom: 3rem;
+                  right: 3rem;
+                  background-color: purple;
+                `}
+              >
+                <Feather.X />
+              </button>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
     </>
   )
+}
+
+Modal.defaultProps = {
+  closeZone: true,
 }

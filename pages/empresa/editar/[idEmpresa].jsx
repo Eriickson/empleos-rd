@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-
-import MasterPage from '../../src/layout/MasterPage'
-import { Container, ScreenLoader } from '../../src/elements'
-import { FormularioNuevaVacante } from '../../src/components'
-import { IsAuth } from '../../src/hooks'
+import MasterPage from '../../../src/layout/MasterPage'
+import { Container, ScreenLoader } from '../../../src/elements'
+import { EditarEmpresaTemplate } from '../../../src/components'
 import Router from 'next/router'
+import { IsAuth } from '../../../src/hooks'
 
-const NuevoEmpleo = () => {
+const EditarEmpresa = () => {
   const { autenticado, role } = IsAuth()
 
   useEffect(() => {
@@ -20,10 +19,10 @@ const NuevoEmpleo = () => {
   return (
     <MasterPage>
       <Container>
-        <FormularioNuevaVacante />
+        <EditarEmpresaTemplate />
       </Container>
     </MasterPage>
   )
 }
 
-export default NuevoEmpleo
+export default EditarEmpresa

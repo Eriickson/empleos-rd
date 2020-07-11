@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { ScreenPDF } from '../../../elements'
+import { ScreenPDF, ActionsFormBottom } from '../../../elements'
+import ModalCambiarFoto from './ModalCambiarFoto'
 
 const DatosPersonales = () => {
   const [urlPdf, setUrlPdf] = useState(null)
@@ -15,6 +16,8 @@ const DatosPersonales = () => {
               alt=""
               className="img-fluid rounded w-25"
             />
+            <br />
+            <ModalCambiarFoto />
           </div>
           <div className="mb-4">
             <label htmlFor="nombre" className="form-label">
@@ -148,6 +151,7 @@ const DatosPersonales = () => {
             ></textarea>
           </div>
         </div>
+        <ActionsFormBottom />
       </div>
     </div>
   )

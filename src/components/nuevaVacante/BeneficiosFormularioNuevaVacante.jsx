@@ -8,7 +8,7 @@ const BeneficiosFormularioNuevaVacante = ({ beneficios, setBeneficios }) => {
   const { errors, handleSubmit, register } = useForm()
 
   return (
-    <div>
+    <div className="mb-2">
       <Collapse name="beneficios" title="Beneficios">
         <ul className="list-group">
           {beneficios?.map(({ id, titulo }) => (

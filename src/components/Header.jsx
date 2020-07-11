@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 
+// Hooks
+import { IsAuth } from '../hooks'
+
 import RegistrarseModal from './RegistrarseModal'
 import IniciarSeccionModal from './IniciarSeccionModal'
 import { css } from '@emotion/core'
 
 export const Header = () => {
-  const [isRegister, setIsRegister] = useState(false)
+  const { autenticado, role } = IsAuth()
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light ">
@@ -27,37 +30,64 @@ export const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link href="/publicar/nueva-vacante">
-                <a className="nav-link" aria-current="page">
-                  Publicar Vacante
-                </a>
-              </Link>
-            </li>
+            {autenticado && role === 'business' && (
+              <li className="nav-item">
+                <Link href="/publicar/nueva-vacante">
+                  <a className="nav-link" aria-current="page">
+                    Publicar Vacante
+                  </a>
+                </Link>
+              </li>
+            )}
           </ul>
-          {isRegister ? (
-            <div className="d-flex align-items-center">
-              <div className="mr-2">
-                <p className="mb-0 h6">Erickson Manuel Holguín</p>
-                <p className="mb-0 text-right">Ing. Sistema</p>
+          {autenticado ? (
+            role === 'user' ? (
+              <div className="d-flex align-items-center">
+                <div className="mr-2">
+                  <p className="mb-0 h6">Erickson Manuel Holguín</p>
+                  <p className="mb-0 text-right">Ing. Sistema</p>
+                </div>
+                <Link href="/perfil/erickson01d">
+                  <a>
+                    <div
+                      css={css`
+                        width: 3rem;
+                        height: 3rem;
+                      `}
+                    >
+                      <img
+                        className="img-fluid rounded"
+                        src="https://persona-app-es.herokuapp.com/assets/personas/1-e0e7223aeb2f66a659d032fb393d11d7e62e00706b1bef5f9f1a13eaa93d4b4b.png"
+                        alt=""
+                      />
+                    </div>
+                  </a>
+                </Link>
               </div>
-              <Link href="/perfil/erickson01d">
-                <a>
-                  <div
-                    css={css`
-                      width: 3rem;
-                      height: 3rem;
-                    `}
-                  >
-                    <img
-                      className="img-fluid rounded"
-                      src="https://persona-app-es.herokuapp.com/assets/personas/1-e0e7223aeb2f66a659d032fb393d11d7e62e00706b1bef5f9f1a13eaa93d4b4b.png"
-                      alt=""
-                    />
-                  </div>
-                </a>
-              </Link>
-            </div>
+            ) : (
+              <div className="d-flex align-items-center">
+                <div className="mr-2">
+                  <p className="mb-0 h6">Uno Call Center</p>
+                  <p className="mb-0 text-right">Empresa</p>
+                </div>
+                <Link href="/empresa/uno-call-center">
+                  <a>
+                    <div
+                      css={css`
+                        width: 3rem;
+                        height: 3rem;
+                      `}
+                    >
+                      <img
+                        className="img-fluid rounded"
+                        src="/img/uno.png"
+                        alt=""
+                      />
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            )
           ) : (
             <div className="d-flex">
               <RegistrarseModal />

@@ -46,8 +46,10 @@ export const FormularioBuscarEmpleo = () => {
             onChange={(e) => setLocalizacion(e.target.value)}
           >
             <option value="">Ciudad o provincia</option>
-            {provinciasOrder.map((provincia) => (
-              <option value={provincia.id}>{provincia.provincia}</option>
+            {provinciasOrder.map((provincia, i) => (
+              <option key={i} value={provincia.id}>
+                {provincia.provincia}
+              </option>
             ))}
           </select>
         </div>

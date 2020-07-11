@@ -8,6 +8,13 @@ import IdiomaFormularioNuevaVacante from './IdiomaFormularioNuevaVacante'
 import { AlertNotification } from '../../elements'
 
 import provincias from '../../../json/provincias.json'
+import areas from '../../../json/areas.json'
+import { css } from '@emotion/core'
+
+const StyleTextArea = css`
+  min-height: 150px;
+  max-height: 200px;
+`
 
 export const FormularioNuevaVacante = () => {
   const [idiomas, setIdiomas] = useState([])
@@ -18,6 +25,10 @@ export const FormularioNuevaVacante = () => {
 
   const provinciasOrder = sortArray(provincias, {
     by: 'provincia',
+    order: 'asc',
+  })
+  const areasOrder = sortArray(areas, {
+    by: 'area',
     order: 'asc',
   })
 
@@ -50,10 +61,11 @@ export const FormularioNuevaVacante = () => {
                   ref={register({ required: true })}
                 >
                   <option value="">Seleccione una area</option>
-                  <option value="medicina">Medicina</option>
-                  <option value="informatica">Informática</option>
-                  <option value="ofimatica">Oficina</option>
-                  <option value="construccion">Construcción</option>
+                  {areasOrder.map((area, i) => (
+                    <option key={i} value={area}>
+                      {area.area}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="mb-3 col-8">
@@ -67,8 +79,10 @@ export const FormularioNuevaVacante = () => {
                   ref={register({ required: true })}
                 >
                   <option value="">Ciudad o provincia</option>
-                  {provinciasOrder.map((provincia) => (
-                    <option value={provincia.id}>{provincia.provincia}</option>
+                  {provinciasOrder.map((provincia, i) => (
+                    <option key={i} value={provincia.id}>
+                      {provincia.provincia}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -99,6 +113,7 @@ export const FormularioNuevaVacante = () => {
                 rows="10"
                 ref={register}
                 placeholder="Descripción"
+                css={StyleTextArea}
               ></textarea>
             </div>
             <div className="row">
@@ -182,6 +197,22 @@ export const FormularioNuevaVacante = () => {
               beneficios={beneficios}
               setBeneficios={setBeneficios}
             />
+            <div className="mb-3">
+              <label htmlFor="mensajes-postulantes" className="form-label">
+                Mensaje para los postulantes
+              </label>
+              <textarea
+                id="mensajes-postulantes"
+                className="form-control"
+                type="text"
+                name="mensajes-postulantes"
+                cols="30"
+                rows="10"
+                ref={register}
+                placeholder="Descripción"
+                css={StyleTextArea}
+              ></textarea>
+            </div>
             <div className="d-flex justify-content-end mt-2">
               <button className="btn btn-danger mr-2">Cancelar</button>
               <button className="btn btn-success">Publicar</button>

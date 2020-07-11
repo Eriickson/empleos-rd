@@ -1,4 +1,5 @@
 import React from 'react'
+import { ActionsFormBottom } from '../../../elements'
 
 const Cuenta = () => {
   return (
@@ -54,6 +55,7 @@ const Cuenta = () => {
             Eliminar Cuenta
           </button>
         </div>
+        <ActionsFormBottom />
       </div>
     </div>
   )

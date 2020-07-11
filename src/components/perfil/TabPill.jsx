@@ -90,7 +90,7 @@ const TabPill = () => {
           </div>
         </div>
         <div
-          class="tab-pane fade pt-3"
+          className="tab-pane fade pt-3"
           id="nav-educacion"
           role="tabpanel"
           aria-labelledby="nav-educacion-tab"

@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Feather from 'react-feather'
 import { css } from '@emotion/core'
+import { ActionsFormBottom } from '../../../elements'
 
 const styleText = css`
   font-size: 0.8rem;
@@ -51,6 +52,7 @@ const DatosLaborales = () => {
             </div>
           </div>
         </div>
+        <ActionsFormBottom />
       </div>
     </div>
   )

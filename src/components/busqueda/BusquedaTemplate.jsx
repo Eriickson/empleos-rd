@@ -13,7 +13,7 @@ export const BusquedaTemplate = () => {
     <MasterPage>
       <Container>
         <div className="row mb-4">
-          <div className="col-10">
+          <div className="col-md-10">
             <div className="input-group">
               <input
                 type="text"

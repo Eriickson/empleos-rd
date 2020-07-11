@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
+import { UploadFileButton, ActionsFormBottom } from '../../../elements'
+import * as Feather from 'react-feather'
+
 const Educacion = () => {
-  const [institucion, setInstitucion] = useState([1, 2, 3, 4])
+  const [institucion, setInstitucion] = useState([1])
 
   return (
     <div className="container p-0 p-md-2">
@@ -51,15 +54,22 @@ const Educacion = () => {
           <p className="h5 mb-4">Educacion No Formal</p>
           {institucion?.map((a, i) => (
             <div className="mb-4" key={i}>
-              <input
-                className="mb-1 w-100"
-                type="text"
-                defaultValue={'Institución'}
-                placeholder="Nombre de la Institución"
-              />
+              <div className="d-flex justify-content-between">
+                <input
+                  className="mb-1"
+                  type="text"
+                  defaultValue={'Institución'}
+                  placeholder="Nombre de la Institución"
+                />
+                <div>12/2020 - 20/2021</div>
+              </div>
               <div className="input-group">
-                <input type="text" className="form-control" />
-                <button className="btn btn-primary">Archivo</button>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Título obtenido..."
+                />
+                <UploadFileButton labelButton={<Feather.FilePlus />} />
               </div>
             </div>
           ))}
@@ -74,6 +84,7 @@ const Educacion = () => {
             </button>
           </div>
         </div>
+        <ActionsFormBottom />
       </div>
     </div>
   )

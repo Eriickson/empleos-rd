@@ -9,10 +9,6 @@ typeof window !== 'undefined' && import('bootstrap/dist/js/bootstrap.bundle.js')
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-// Apollo Client
-import { ApolloProvider } from '@apollo/react-hooks'
-import client from '../graphql'
-
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())

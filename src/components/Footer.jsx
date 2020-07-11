@@ -2,6 +2,8 @@ import React from 'react'
 import { Container } from '../elements'
 import { css } from '@emotion/core'
 import Link from 'next/link'
+import CambiarAutenticacion from './CambiarAutenticacion'
+import CambiarRole from './CambiarRole'
 
 export const Footer = () => {
   return (
@@ -14,6 +16,10 @@ export const Footer = () => {
       <Container>
         <div className="d-flex flex-column align-items-center">
           <p className="text-white h3">Empleos RD </p>
+          <div className="d-flex">
+            <CambiarRole />
+            <CambiarAutenticacion />
+          </div>
           <ul className="nav my-4">
             <li className="nav-item">
               <Link href="">
