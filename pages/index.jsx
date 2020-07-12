@@ -11,7 +11,7 @@ const Index = () => {
       <Container>
         <FormularioBuscarEmpleo />
         <div className="row">
-          <div className="col-3 mt-3">
+          <div className="col col-md-3 mt-3">
             <p className="d-flex align-items-center">
               <Feather.Clock className="mr-2" />
               Últimas Busquedas
@@ -24,10 +24,10 @@ const Index = () => {
               <li className="">Diñenador Gráfico</li>
             </ul>
           </div>
-          <div className="col-3 mt-3">
+          <div className="col col-md-3 mt-3">
             <p className="d-flex align-items-center">
               <Feather.ArrowUp className="mr-2" />
-              Cuidades con mayor Demandas
+              Mayore Demandas
             </p>
             <ul className="">
               <li className="">

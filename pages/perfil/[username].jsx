@@ -8,7 +8,10 @@ const Perfil = () => {
   const { autenticado } = IsAuth()
 
   useEffect(() => {
-    autenticado ? null : Router.push('/app')
+    if (autenticado !== null) {
+      autenticado ? null : Router.push('/app')
+      console.log(autenticado)
+    }
   }, [autenticado])
 
   if (!autenticado) {

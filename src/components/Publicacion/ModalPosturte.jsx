@@ -17,7 +17,7 @@ const ModalPosturte = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="offset-3 col-6">
+            <div className="offset-md-3 col-md-6">
               <div className="card p-3">
                 <p className="mb-0 lead">Nota de la empresa para usted</p>
                 <hr />

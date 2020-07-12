@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // My Components
 import MasterPage from '../../src/layout/MasterPage'
-import { Container } from '../../src/elements'
+import { Container, ScreenLoader } from '../../src/elements'
 import { EmpresaTemplate } from '../../src/components'
+import { IsAuth } from '../../src/hooks'
+import Router from 'next/router'
 
 const IdEmpresa = () => {
+  const { autenticado, role } = IsAuth()
+
+  useEffect(() => {
+    if (autenticado !== null) {
+      autenticado ? null : Router.push('/app')
+    }
+  }, [autenticado])
+
+  if (!autenticado) {
+    return <ScreenLoader />
+  }
   return (
     <MasterPage>
       <Container>

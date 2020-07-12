@@ -9,7 +9,9 @@ const EditarEmpresa = () => {
   const { autenticado, role } = IsAuth()
 
   useEffect(() => {
-    autenticado && role === 'business' ? null : Router.push('/app')
+    if (autenticado !== null) {
+      autenticado && role === 'business' ? null : Router.push('/app')
+    }
   }, [autenticado])
 
   if (!autenticado) {

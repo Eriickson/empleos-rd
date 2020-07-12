@@ -8,7 +8,9 @@ const EditarPerfilUsuario = () => {
   const { autenticado, role } = IsAuth()
 
   useEffect(() => {
-    autenticado && role === 'user' ? null : Router.push('/app')
+    if (autenticado !== null) {
+      autenticado && role === 'user' ? null : Router.push('/app')
+    }
   }, [autenticado])
 
   if (!autenticado) {
