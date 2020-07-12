@@ -47,7 +47,7 @@ export const Header = () => {
                   <p className="mb-0 h6">Erickson Manuel Holguín</p>
                   <p className="mb-0 text-right">Ing. Sistema</p>
                 </div>
-                <Link href="/perfil/erickson01d">
+                <Link href="/perfil/[username]" as="/perfil/erickson01d">
                   <a>
                     <div
                       css={css`
@@ -70,7 +70,7 @@ export const Header = () => {
                   <p className="mb-0 h6">Uno Call Center</p>
                   <p className="mb-0 text-right">Empresa</p>
                 </div>
-                <Link href="/empresa/uno-call-center">
+                <Link href="/empresa/[idEmpresa]" as="/empresa/uno-call-center">
                   <a>
                     <div
                       css={css`
