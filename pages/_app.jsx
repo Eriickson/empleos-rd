@@ -1,9 +1,9 @@
 import React from 'react'
 import Router from 'next/router'
 import { Global, css } from '@emotion/core'
-import '../src/styles/styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import '../src/sass/styles.scss'
 typeof window !== 'undefined' && import('bootstrap/dist/js/bootstrap.bundle.js')
 
 import NProgress from 'nprogress'

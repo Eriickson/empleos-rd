@@ -14,6 +14,8 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
@@ -47,6 +49,7 @@
     "react-scroll-up-button": "^1.6.4",
     "react-scrollbars-custom": "^4.0.25",
     "react-top-loading-bar": "^1.2.0",
+    "sass": "^1.26.10",
     "shortid": "^2.2.15",
     "sort-array": "^4.1.1",
     "subscriptions-transport-ws": "^0.9.16"
