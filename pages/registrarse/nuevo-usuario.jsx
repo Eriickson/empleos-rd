@@ -10,7 +10,7 @@ const NuevoUsuario = () => {
 
   return (
     <MasterPageLogin title="Usuario">
-      <Container className={'pt-1 pt-md-5'}>
+      <Container className={'pt-1 pt-md-1'}>
         {!isRegister && (
           <div className="row">
             <div className="offset-md-3 col-md-6 card py-3 px-3 px-md-5 mt-md-5">

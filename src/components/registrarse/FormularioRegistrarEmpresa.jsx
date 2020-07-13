@@ -1,36 +1,45 @@
 import React from 'react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { AlertNotification } from '../../elements'
 
 export const FormularioRegistrarEmpresa = () => {
   const { handleSubmit, errors, register } = useForm()
 
   const onSubmit = async (data) => {
-    if (data.confirmarContrasenya !== data.contrasenya) {
+    if (data.confirmPassword !== data.password) {
+      console.log('No')
+
       return null
     }
-    delete data.confirmarContrasenya
+    delete data.confirmPassword
     console.log(data)
   }
+
+  const AlertRequerido = (
+    <div>
+      <span className="mr-1 text-danger">*</span>
+      <span className="text-danger text-decoration-underline">requerido</span>
+    </div>
+  )
+
   return (
     <>
-      {Object.keys(errors).length > 0 && (
-        <AlertNotification message={'Todos los campos son obligatorios'} />
-      )}
-
       <div className="row">
         <div className="offset-md-3 col-md-6 card py-3 px-3 px-md-5 mt-md-5">
           <p className="text-center h3 mb-0">Regístrate</p>
           <p className="text-center mb-4">(Empresa)</p>
           <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3">
-              <label htmlFor="nombre" className="form-label">
+              <label
+                htmlFor="businessName"
+                className="form-label d-flex justify-content-between"
+              >
                 Nombre de la empresa
+                {errors.businessName && AlertRequerido}
               </label>
               <input
-                id="nombre"
-                name="nombre"
+                id="businessName"
+                name="businessName"
                 type="text"
                 className="form-control"
                 placeholder="Erickson Manuel"
@@ -38,25 +47,37 @@ export const FormularioRegistrarEmpresa = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="correo" className="form-label">
-                correo
+              <label
+                htmlFor="email"
+                className="form-label d-flex justify-content-between"
+              >
+                correo{errors.email && AlertRequerido}
               </label>
               <input
-                id="correo"
-                name="correo"
+                id="email"
+                name="email"
                 type="text"
                 className="form-control"
                 placeholder="correo@correo.com"
-                ref={register({ required: true })}
+                ref={register({
+                  required: true,
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Correo inválido',
+                  },
+                })}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="numeroEmpleados" className="form-label">
-                Numero de Empleados
+              <label
+                htmlFor="numberEmployees"
+                className="form-label d-flex justify-content-between"
+              >
+                Numero de Empleados{errors.numberEmployees && AlertRequerido}
               </label>
               <select
-                id="numeroEmpleados"
-                name="numeroEmpleados"
+                id="numberEmployees"
+                name="numberEmployees"
                 className="form-control"
                 ref={register({ required: true })}
               >
@@ -71,15 +92,17 @@ export const FormularioRegistrarEmpresa = () => {
               </select>
             </div>
             <div className="mb-3">
-              <label htmlFor="contrasenya" className="form-label">
-                contraseña
+              <label
+                htmlFor="password"
+                className="form-label d-flex justify-content-between"
+              >
+                contraseña{errors.password && AlertRequerido}
               </label>
               <input
-                id="contrasenya"
-                name="contrasenya"
-                type="text"
+                id="password"
+                name="password"
+                type="password"
                 className="form-control"
-                id="contrasenya"
                 placeholder=""
                 ref={register({
                   required: {
@@ -92,13 +115,16 @@ export const FormularioRegistrarEmpresa = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="confirmar-contrasenya" className="form-label">
-                confirmar contraseña
+              <label
+                htmlFor="confirmPassword"
+                className="form-label d-flex justify-content-between"
+              >
+                confirmar contraseña{errors.confirmPassword && AlertRequerido}
               </label>
               <input
-                id="confirmar-contrasenya"
-                name="confirmarContrasenya"
-                type="text"
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
                 className="form-control"
                 placeholder=""
                 ref={register({ required: true })}

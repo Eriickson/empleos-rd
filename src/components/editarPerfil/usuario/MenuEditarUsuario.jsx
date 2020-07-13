@@ -1,7 +1,7 @@
 import React from 'react'
 import DatosPersonales from './DatosPersonales'
 import Contactos from './Contactos'
-import Educacion from './Educacion'
+import Educacion from './educacion/Educacion'
 import DatosLaborales from './DatosLaborales'
 import Cuenta from './Cuenta'
 import * as Feather from 'react-feather'

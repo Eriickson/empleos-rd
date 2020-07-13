@@ -4,35 +4,53 @@ import Link from 'next/link'
 
 export const FormularioIniciarSeccionEmpresa = () => {
   const { register, handleSubmit, errors } = useForm()
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
+  const AlertRequerido = (
+    <div>
+      <span className="mr-1 text-danger">*</span>
+      <span className="text-danger text-decoration-underline">requerido</span>
+    </div>
+  )
 
   return (
     <div className="row">
       <div className="offset-md-4 col-md-4 card py-3 px-5 mt-5">
         <p className="text-center h3">Iniciar Sección</p>
         <p className="text-center mb-4">(Empresa)</p>
-        <form className="row" onSubmit={handleSubmit(() => {})}>
+        <form className="row" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3">
-            <label htmlFor="nombre" className="form-label">
-              Correo
+            <label
+              htmlFor="identifier"
+              className="form-label d-flex justify-content-between"
+            >
+              Identificador
+              {errors.identifier && AlertRequerido}
             </label>
             <input
-              id="nombre"
+              id="identifier"
               className="form-control"
-              name="correo"
+              name="identifier"
               type="text"
               placeholder="Correo o Nombre de la empresa"
               ref={register({ required: true })}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="contrasenya" className="form-label">
+            <label
+              htmlFor="password"
+              className="form-label d-flex justify-content-between"
+            >
               Contraseña
+              {errors.password && AlertRequerido}
             </label>
             <input
-              name="contrasenya"
-              type="text"
+              id="password"
+              name="password"
+              type="password"
               className="form-control"
-              id="contrasenya"
               placeholder="Contraseña"
               ref={register({ required: true })}
             />
@@ -40,10 +58,11 @@ export const FormularioIniciarSeccionEmpresa = () => {
           <div className="d-flex justify-content-between mb-3">
             <div className="form-check">
               <input
+                id="recordarme"
+                name="recordarme"
                 className="form-check-input"
                 type="checkbox"
-                value=""
-                id="recordarme"
+                ref={register}
               />
               <label className="form-check-label" htmlFor="recordarme">
                 Recordarme

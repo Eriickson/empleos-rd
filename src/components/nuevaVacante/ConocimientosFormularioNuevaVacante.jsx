@@ -11,54 +11,52 @@ const ConocimientosFormularioNuevaVacante = ({
   const { errors, handleSubmit, register } = useForm()
 
   return (
-    <div>
-      <Collapse name="conocimientos" title="Conocimientos">
-        <ul className="list-group">
-          {conocimientos.map(({ id, titulo, puntuacion }) => (
-            <li
-              key={id}
-              className="list-group-item d-flex justify-content-between"
+    <Collapse name="conocimientos" title="Conocimientos">
+      <ul className="list-group mt-2">
+        {conocimientos.map(({ id, titulo, puntuacion }) => (
+          <li
+            key={id}
+            className="list-group-item d-flex justify-content-between"
+          >
+            <div>
+              <span>{titulo}</span>
+            </div>
+            <span
+              onClick={() => {
+                const nuevosConocimientos = conocimientos.filter(
+                  (conocimiento) => conocimiento.id !== id,
+                )
+                setConocimientos(nuevosConocimientos)
+              }}
             >
-              <div>
-                <span>{titulo}</span>
-              </div>
-              <span
-                onClick={() => {
-                  const nuevosConocimientos = conocimientos.filter(
-                    (conocimiento) => conocimiento.id !== id,
-                  )
-                  setConocimientos(nuevosConocimientos)
-                }}
-              >
-                <Feather.X className="" />
-              </span>
-            </li>
-          ))}
-          <div className="input-group mt-3">
-            <input
-              type="text"
-              className="form-control"
-              name="conocimiento"
-              ref={register({ required: true })}
-            />
-            <button
-              className="btn btn-primary"
-              onClick={handleSubmit(({ conocimiento }) => {
-                setConocimientos([
-                  ...conocimientos,
-                  {
-                    id: generate(),
-                    titulo: conocimiento,
-                  },
-                ])
-              })}
-            >
-              Agregar
-            </button>
-          </div>
-        </ul>
-      </Collapse>
-    </div>
+              <Feather.X className="" />
+            </span>
+          </li>
+        ))}
+        <div className="input-group mt-3">
+          <input
+            type="text"
+            className="form-control"
+            name="conocimiento"
+            ref={register({ required: true })}
+          />
+          <button
+            className="btn btn-primary"
+            onClick={handleSubmit(({ conocimiento }) => {
+              setConocimientos([
+                ...conocimientos,
+                {
+                  id: generate(),
+                  titulo: conocimiento,
+                },
+              ])
+            })}
+          >
+            Agregar
+          </button>
+        </div>
+      </ul>
+    </Collapse>
   )
 }
 

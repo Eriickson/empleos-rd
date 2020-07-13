@@ -15,7 +15,7 @@ const DatosEmpresa = () => {
         `}
       >
         <div className="row mt-3">
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="mb-3">
               <label className="mb-1" htmlFor="">
                 Nombre de la empresa
@@ -35,7 +35,7 @@ const DatosEmpresa = () => {
               <input type="text" className="form-control" />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="mb-3">
               <label className="mb-1" htmlFor="">
                 Cantidad de Empleados
@@ -67,7 +67,7 @@ const DatosEmpresa = () => {
         `}
       >
         <div className="row mt-3">
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="mb-3">
               <label className="mb-1" htmlFor="">
                 Teléfono
@@ -97,7 +97,7 @@ const DatosEmpresa = () => {
         `}
       >
         <div className="row mt-3">
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="mb-3">
               <label className="mb-1" htmlFor="">
                 Facebook

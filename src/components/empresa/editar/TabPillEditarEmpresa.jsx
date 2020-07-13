@@ -11,7 +11,7 @@ import DatosEmpresa from './DatosEmpresa'
 const TabPillEditarEmpresa = () => {
   return (
     <div>
-      <TPContainerHeader>
+      <TPContainerHeader center={true}>
         <TabNav title="Cuenta" name="config-cuenta" isActive={true} />
         <TabNav title="Empresa" name="config-empresa" />
       </TPContainerHeader>

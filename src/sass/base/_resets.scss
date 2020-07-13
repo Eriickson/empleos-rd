@@ -4,6 +4,29 @@ input {
   background-color: white;
   outline: none !important;
 }
-* {
+p,
+span,
+a {
   color: $text;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin: 0;
+}
+aside.AnyClassForTransition {
+  right: 1.8125rem;
+}
+aside.AnyClassForContainer {
+  bottom: 8rem;
 }

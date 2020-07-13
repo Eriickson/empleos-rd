@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import { UploadFileButton, ActionsFormBottom } from '../../../elements'
+import { UploadFileButton, ActionsFormBottom } from '../../../../elements'
 import * as Feather from 'react-feather'
+import InputEducacionFormal from './InputEducacionFormal'
 
 const Educacion = () => {
   const [institucion, setInstitucion] = useState([1])
@@ -12,42 +13,12 @@ const Educacion = () => {
         <div className="col-md-6">
           <p className="h5 mb-4">Educacion Formal</p>
           <div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Primaria
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Secundaria
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Técnico
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Universitario
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Maestría
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
-            <div className="mb-3">
-              <label className="mb-1" htmlFor="">
-                Doctorado
-              </label>
-              <input type="text" className="form-control w-100" />
-            </div>
+            <InputEducacionFormal name={'primaria'} />
+            <InputEducacionFormal name={'secundaria'} />
+            <InputEducacionFormal name={'tecnico'} />
+            <InputEducacionFormal name={'universitario'} />
+            <InputEducacionFormal name={'maestria'} />
+            <InputEducacionFormal name={'doctorado'} />
           </div>
         </div>
         <div className="col-md-6">
@@ -58,7 +29,6 @@ const Educacion = () => {
                 <input
                   className="mb-1"
                   type="text"
-                  defaultValue={'Institución'}
                   placeholder="Nombre de la Institución"
                 />
                 <div>12/2020 - 20/2021</div>
@@ -70,6 +40,9 @@ const Educacion = () => {
                   placeholder="Título obtenido..."
                 />
                 <UploadFileButton labelButton={<Feather.FilePlus />} />
+                <button className="btn btn-outline-danger">
+                  <Feather.X />
+                </button>
               </div>
             </div>
           ))}

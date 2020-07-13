@@ -1,0 +1,13 @@
+.alert-error {
+  width: max-content;
+  background-color: $danger;
+  color: white;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  position: fixed;
+
+  p {
+    color: white;
+    padding-left: 0.8rem;
+  }
+}

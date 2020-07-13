@@ -12,7 +12,7 @@ const Avatar = css`
 export const EditarEmpresaTemplate = () => {
   return (
     <div className="row">
-      <div className="col-3">
+      <div className="col-md-3 mb-3">
         <ul className="list-group">
           <li className="list-group-item py-3">
             <div className="d-flex flex-column align-items-center">
@@ -44,7 +44,7 @@ export const EditarEmpresaTemplate = () => {
           </li>
         </ul>
       </div>
-      <div className="col-9">
+      <div className="col-md-9">
         <TabPillEditarEmpresa />
       </div>
     </div>

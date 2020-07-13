@@ -2,10 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 import ModalPosturte from './ModalPosturte'
 import * as Feather from 'react-feather'
-import { IsAuth } from '../../hooks'
+import { isAuth } from '../../hooks'
 
 const CartaDetalles = () => {
-  const { autenticado } = IsAuth()
+  const { autenticado } = isAuth()
 
   const linkIniciarSeccion = (
     <Link href="/iniciar-seccion">

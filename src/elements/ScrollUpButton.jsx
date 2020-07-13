@@ -12,8 +12,8 @@ export const ScrollUpButton = () => {
     >
       <Feather.ArrowUpCircle
         css={css`
-          width: 3rem;
-          height: 3rem;
+          width: 2.5rem;
+          height: 2.5rem;
         `}
       />
     </ReactScrollUpButton>

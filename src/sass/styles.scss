@@ -1,8 +1,14 @@
 @import "./utils/variables";
 @import "./utils/mixins";
 @import "./base/resets";
+
+// Components
 @import "./components/buttons";
 @import "./components/nav-tabs";
+@import "./components/header";
+@import "./components/footer";
+@import "./components/card-publicacion";
+@import "./components/alerts-notification";
 
 svg {
   width: 1.3rem;

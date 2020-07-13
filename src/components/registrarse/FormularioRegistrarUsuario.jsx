@@ -5,26 +5,20 @@ import paises from 'i18n-iso-countries/langs/es.json'
 
 // Apollo & GraphQL
 
-import { AlertNotification } from '../../elements'
-
 export const FormularioRegistrarUsuario = () => {
-  const [error, setError] = useState({ value: false, message: null })
   const { handleSubmit, register, errors } = useForm()
+  const [passwordError, setPasswordError] = useState(false)
 
   const onSubmit = async (data) => {
-    if (data.confirmarContrasenya !== data.contrasenya) {
-      setError({ value: true, message: 'Las contraseñas no coinciden' })
+    if (data.confirmPassword !== data.password) {
+      setPasswordError(true)
       setTimeout(() => {
-        setError({ value: false, message: null })
-      }, 3000)
+        setPasswordError(false)
+      }, 5000)
       return null
     }
-    delete data.confirmarContrasenya
-
-    registrarUsuario({ variables }).catch((err) => {
-      const errorManejado = JSON.parse(`${err}`.split('GraphQL error: ').pop())
-      console.log(errorManejado)
-    })
+    delete data.confirmPassword
+    console.log(data)
   }
 
   let customPaises = Object.keys(paises.countries).map((key) => {
@@ -39,31 +33,37 @@ export const FormularioRegistrarUsuario = () => {
     }
     return 0
   })
-  useEffect(() => {
-    if (Object.keys(errors).length > 0) {
-      setError({ value: true, message: 'Todos los campos son obligatorios' })
-    }
-    setTimeout(() => {
-      setError({ value: false, message: null })
-    }, 3000)
-  }, [errors])
-  console.log(errors)
+
+  const AlertRequerido = (
+    <div>
+      <span className="mr-1 text-danger">*</span>
+      <span className="text-danger text-decoration-underline">requerido</span>
+    </div>
+  )
 
   return (
     <>
-      {error.value && <AlertNotification message={error.message} />}
       <div className="row">
         <div className="offset-md-3 col-md-6 card py-3 px-3 px-md-5 mt-md-5">
           <p className="text-center h3 mb-0">Regístrate</p>
           <p className="text-center mb-4">(Usuario)</p>
+          {passwordError && (
+            <label htmlFor="password" className="text-center text-danger mb-4">
+              Las contraseñas no coinciden
+            </label>
+          )}
           <form className="row" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3 col-6">
-              <label htmlFor="nombre" className="form-label">
+              <label
+                htmlFor="name"
+                className="form-label d-flex justify-content-between"
+              >
                 Nombre
+                {errors.name && AlertRequerido}
               </label>
               <input
-                id="nombre"
-                name="nombre"
+                id="name"
+                name="name"
                 type="text"
                 className="form-control"
                 placeholder="Erickson Manuel"
@@ -71,12 +71,16 @@ export const FormularioRegistrarUsuario = () => {
               />
             </div>
             <div className="mb-3 col-6">
-              <label htmlFor="apellido" className="form-label">
+              <label
+                htmlFor="lastname"
+                className="form-label d-flex justify-content-between"
+              >
                 Apellidos
+                {errors.lastname && AlertRequerido}
               </label>
               <input
-                id="apellido"
-                name="apellido"
+                id="lastname"
+                name="lastname"
                 type="text"
                 className="form-control"
                 placeholder="Holguín"
@@ -84,12 +88,16 @@ export const FormularioRegistrarUsuario = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="correo" className="form-label">
+              <label
+                htmlFor="email"
+                className="form-label d-flex justify-content-between"
+              >
                 correo
+                {errors.email && AlertRequerido}
               </label>
               <input
-                id="correo"
-                name="correo"
+                id="email"
+                name="email"
                 type="email"
                 className="form-control"
                 placeholder="correo@correo.com"
@@ -103,12 +111,16 @@ export const FormularioRegistrarUsuario = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="usuario" className="form-label">
+              <label
+                htmlFor="username"
+                className="form-label d-flex justify-content-between"
+              >
                 Nombre de Usuario
+                {errors.username && AlertRequerido}
               </label>
               <input
-                id="usuario"
-                name="usuario"
+                id="username"
+                name="username"
                 type="text"
                 className="form-control"
                 placeholder="Erickson01d"
@@ -116,12 +128,16 @@ export const FormularioRegistrarUsuario = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="pais-origen" className="form-label">
+              <label
+                htmlFor="nationality"
+                className="form-label d-flex justify-content-between"
+              >
                 Pais de Origen
+                {errors.nationality && AlertRequerido}
               </label>
               <select
-                id="pais-origen"
-                name="paisOrigen"
+                id="nationality"
+                name="nationality"
                 className="form-control"
                 ref={register({
                   required: true,
@@ -136,13 +152,17 @@ export const FormularioRegistrarUsuario = () => {
               </select>
             </div>
             <div className="mb-3">
-              <label htmlFor="contrasenya" className="form-label">
+              <label
+                htmlFor="password"
+                className="form-label d-flex justify-content-between"
+              >
                 contraseña
+                {errors.password && AlertRequerido}
               </label>
               <input
-                id="contrasenya"
-                name="contrasenya"
-                type="text"
+                id="password"
+                name="password"
+                type="password"
                 className="form-control"
                 placeholder=""
                 ref={register({
@@ -155,25 +175,32 @@ export const FormularioRegistrarUsuario = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="confirmar-contrasenya" className="form-label">
+              <label
+                htmlFor="confirmPassword"
+                className="form-label d-flex justify-content-between"
+              >
                 confirmar contraseña
+                {errors.confirmPassword && AlertRequerido}
               </label>
               <input
-                id="confirmar-contrasenya"
-                name="confirmarContrasenya"
-                type="text"
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
                 className="form-control"
                 placeholder=""
                 ref={register({ required: true })}
               />
             </div>
             <div>
-              <label className="form-check-label mb-2">Sexo</label>
+              <label className="form-check-label mb-2 d-flex justify-content-between">
+                Sexo
+                {errors.sex && AlertRequerido}
+              </label>
               <div className="form-check">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="sexo"
+                  name="sex"
                   id="femenino"
                   ref={register({ required: true })}
                   value="F"
@@ -186,7 +213,7 @@ export const FormularioRegistrarUsuario = () => {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="sexo"
+                  name="sex"
                   id="masculino"
                   ref={register({ required: true })}
                   value="M"

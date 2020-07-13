@@ -1,10 +1,10 @@
 import React from 'react'
 import InformacionPublicacion from './InformacionPublicacion'
 import CartaDetalles from './CartaDetalles'
-import { IsAuth } from '../../hooks'
+import { isAuth } from '../../hooks'
 
 const PublicacionTemplate = () => {
-  const { role } = IsAuth()
+  const { role } = isAuth()
   return (
     <div className="row">
       <InformacionPublicacion />

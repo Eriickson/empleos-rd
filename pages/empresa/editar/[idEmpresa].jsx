@@ -3,10 +3,10 @@ import MasterPage from '../../../src/layout/MasterPage'
 import { Container, ScreenLoader } from '../../../src/elements'
 import { EditarEmpresaTemplate } from '../../../src/components'
 import Router from 'next/router'
-import { IsAuth } from '../../../src/hooks'
+import { isAuth } from '../../../src/hooks'
 
 const EditarEmpresa = () => {
-  const { autenticado, role } = IsAuth()
+  const { autenticado, role } = isAuth()
 
   useEffect(() => {
     if (autenticado !== null) {

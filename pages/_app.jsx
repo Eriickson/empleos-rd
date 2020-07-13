@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }) {
       <Global
         styles={css`
           #nprogress .bar {
-            background-color: #0d6efd;
+            background-color: red;
             height: 2px;
           }
         `}

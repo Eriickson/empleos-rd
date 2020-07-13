@@ -1,0 +1,16 @@
+.card-publicacion {
+  .cabecera {
+    h5 {
+      font-size: 1.2rem;
+    }
+  }
+  .direccion {
+    color: $neutral-dark-75;
+    font-size: 0.8rem;
+    font-weight: 500;
+    svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+  }
+}

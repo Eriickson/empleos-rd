@@ -4,11 +4,11 @@ import React, { useEffect } from 'react'
 import MasterPage from '../../src/layout/MasterPage'
 import { Container, ScreenLoader } from '../../src/elements'
 import { EmpresaTemplate } from '../../src/components'
-import { IsAuth } from '../../src/hooks'
+import { isAuth } from '../../src/hooks'
 import Router from 'next/router'
 
 const IdEmpresa = () => {
-  const { autenticado, role } = IsAuth()
+  const { autenticado, role } = isAuth()
 
   useEffect(() => {
     if (autenticado !== null) {

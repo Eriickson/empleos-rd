@@ -7,10 +7,10 @@ import TabPillEmpresa from './TabPillEmpresa'
 import ModalSolicitarEmpleo from './ModalSolicitarEmpleo'
 
 // Hooks
-import { IsAuth } from '../../hooks'
+import { isAuth } from '../../hooks'
 
 export const EmpresaTemplate = () => {
-  const { autenticado, role } = IsAuth()
+  const { autenticado, role } = isAuth()
 
   const editarPerfil = (
     <Link

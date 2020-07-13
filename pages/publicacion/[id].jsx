@@ -4,11 +4,11 @@ import * as Feather from 'react-feather'
 import MasterPage from '../../src/layout/MasterPage'
 import { Container, Collapse, Modal } from '../../src/elements'
 import Link from 'next/link'
-import { IsAuth } from '../../src/hooks'
+import { isAuth } from '../../src/hooks'
 import PublicacionTemplate from '../../src/components/Publicacion/PublicacionTemplate'
 
 const Publicacion = () => {
-  const { role, autenticado } = IsAuth()
+  const { role, autenticado } = isAuth()
 
   return (
     <MasterPage screenLoader={true}>

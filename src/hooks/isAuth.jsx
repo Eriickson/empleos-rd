@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { boolean } from 'boolean'
 
-export const IsAuth = () => {
+export const isAuth = () => {
   const [autenticado, setAutenticado] = useState(null)
   const [role, setRole] = useState(null)
 

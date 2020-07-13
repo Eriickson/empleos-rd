@@ -10,6 +10,7 @@ import { AlertNotification } from '../../elements'
 import provincias from '../../../json/provincias.json'
 import areas from '../../../json/areas.json'
 import { css } from '@emotion/core'
+import Link from 'next/link'
 
 const StyleTextArea = css`
   min-height: 150px;
@@ -47,10 +48,10 @@ export const FormularioNuevaVacante = () => {
       )}
       <p className="text-center h1 py-2 py-md-4">Nueva Vacante</p>
       <div className="row">
-        <div className="offset-2 col-md-8">
+        <div className="offset-md-2 col-md-8">
           <form className="p-md-3" onSubmit={handleSubmit(onSubmit)}>
             <div className="row">
-              <div className="mb-3 col-4">
+              <div className="mb-3 col-5 col-md-4">
                 <label htmlFor="area" className="form-label">
                   Area
                 </label>
@@ -68,7 +69,7 @@ export const FormularioNuevaVacante = () => {
                   ))}
                 </select>
               </div>
-              <div className="mb-3 col-8">
+              <div className="mb-3 col-7 col-md-8">
                 <label htmlFor="ubicacion" className="form-label">
                   Ubicación
                 </label>
@@ -151,7 +152,6 @@ export const FormularioNuevaVacante = () => {
                 </select>
               </div>
             </div>
-
             <div className="mb-3">
               <label htmlFor="salario" className="form-label">
                 Idiomas
@@ -182,22 +182,22 @@ export const FormularioNuevaVacante = () => {
                 placeholder="#"
               />
             </div>
-            <hr />
+            <i className="mb-2 d-block"></i>
             <RequisitosFormularioNuevaVacante
               requisitos={requisitos}
               setRequisitos={setRequisitos}
             />
-            <hr />
+            <i className="mb-2 d-block"></i>
             <ConocimientosFormularioNuevaVacante
               conocimientos={conocimientos}
               setConocimientos={setConocimientos}
             />
-            <hr />
+            <i className="mb-2 d-block"></i>
             <BeneficiosFormularioNuevaVacante
               beneficios={beneficios}
               setBeneficios={setBeneficios}
             />
-            <div className="mb-3">
+            <div className="my-3">
               <label htmlFor="mensajes-postulantes" className="form-label">
                 Mensaje para los postulantes
               </label>
@@ -214,7 +214,9 @@ export const FormularioNuevaVacante = () => {
               ></textarea>
             </div>
             <div className="d-flex justify-content-end mt-2">
-              <button className="btn btn-danger mr-2">Cancelar</button>
+              <Link href="/app">
+                <a className="btn btn-danger mr-2">Cancelar</a>
+              </Link>
               <button className="btn btn-success">Publicar</button>
             </div>
           </form>

@@ -1,10 +1,14 @@
-import React from 'react'
-import { Header, Footer } from '../components'
+import React, { useState } from 'react'
+import { Header, Footer, Menu } from '../components'
 import { ScrollUpButton } from '../elements'
 import { motion } from 'framer-motion'
 import { css } from '@emotion/core'
+import { isAuth } from '../hooks'
 
 const MasterPage = ({ children }) => {
+  const [estadoMenu, setEstadoMenu] = useState(false)
+  const { autenticado } = isAuth()
+
   return (
     <>
       <motion.div
@@ -18,6 +22,9 @@ const MasterPage = ({ children }) => {
         <Header />
         <main
           className="py-5"
+          style={{
+            filter: estadoMenu ? 'blur(5px)' : null,
+          }}
           css={css`
             min-height: 70vh;
           `}
@@ -26,6 +33,9 @@ const MasterPage = ({ children }) => {
         </main>
         <Footer />
         <ScrollUpButton />
+        {autenticado && (
+          <Menu isActive={estadoMenu} setActive={setEstadoMenu} />
+        )}
       </motion.div>
     </>
   )

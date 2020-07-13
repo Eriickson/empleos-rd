@@ -10,7 +10,7 @@ const RequisitosFormularioNuevaVacante = ({ requisitos, setRequisitos }) => {
   return (
     <div>
       <Collapse title="Requisitos">
-        <ul className="list-group">
+        <ul className="list-group mt-2">
           {requisitos?.map(({ id, titulo }) => (
             <li
               key={id}

@@ -6,10 +6,10 @@ import TabPill from './TabPill'
 import { css } from '@emotion/core'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { IsAuth } from '../../hooks'
+import { isAuth } from '../../hooks'
 
 export const Perfil = () => {
-  const { role, autenticado } = IsAuth()
+  const { role, autenticado } = isAuth()
 
   if (!autenticado) {
     return <ScreenLoader />
@@ -44,16 +44,16 @@ export const Perfil = () => {
                 <span className="mr-2 badge bg-primary">UX/UI</span>
               </div>
               <div className="d-flex flex-column">
-                <p>
+                <p className="mb-2">
                   <Feather.Phone className="mr-1" /> +1 (829) 816-0959
                 </p>
-                <p>
+                <p className="mb-2">
                   <Feather.Mail className="mr-1" /> Erickson01d@gmail.com
                 </p>
-                <p>
+                <p className="mb-2">
                   <Feather.MapPin className="mr-1" /> Santiago/Rep. Dom.
                 </p>
-                <p>
+                <p className="mb-2">
                   <ScreenPDF
                     labelButton={
                       <>

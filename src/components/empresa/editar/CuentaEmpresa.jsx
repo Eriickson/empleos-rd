@@ -6,7 +6,7 @@ const CuentaEmpresa = () => {
     <>
       <div className="container p-0 mt-3">
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6">
             <div className="mb-3">
               <label className="mb-1" htmlFor="">
                 Usuario
@@ -31,7 +31,7 @@ const CuentaEmpresa = () => {
               >
                 <div className="container dark-modal-cambiar-contrasenya">
                   <div className="row dark-modal-cambiar-contrasenya">
-                    <div className="col-4 offset-4 dark-modal-cambiar-contrasenya">
+                    <div className="col-md-4 offset-md-4 dark-modal-cambiar-contrasenya">
                       <div className="card p-4">
                         <p className="lead text-center">Cambiar Contraseña</p>
                         <div className="mb-2">

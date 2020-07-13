@@ -33,7 +33,7 @@ export const AlertNotification = ({ message }) => {
             top: '-4rem',
           }}
         >
-          <div className="d-flex">
+          <div className="d-flex flex-row">
             <Feather.Slash />
             <p className="ml-2 mb-0">{message}</p>
           </div>
